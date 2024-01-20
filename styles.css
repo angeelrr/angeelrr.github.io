@@ -1,0 +1,109 @@
+/* CSS StyleSheet */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+  
+.login-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+  
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+  
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: normal;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.login-input:hover,
+.login-input:active,
+.login-input:focus {
+  border-color: #5698da;
+}
+
+.login-button {
+  background-color: #5698da;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.2s ease, border-color 0.3s ease;
+}
+  
+.login-button:hover {
+  background-color: #5092d3;
+}
+
+.registration-message {
+  color: #555;/* Add transition for click effect */
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.forgot-password-link,
+.registration-link {
+  color: #5698da;
+  text-decoration: none;
+  font-size: 14px;
+}
+  
+.forgot-password-link:hover,
+.registration-link:hover {
+  text-decoration: none;
+}
+  
+.remember-me-label {
+  font-size: 14px;
+  color: #555;
+  vertical-align: middle;
+  line-height: 1.5;
+  display: flex; /* Use flexbox to align items vertically */
+  align-items: center; /* Center items vertically */
+}
+
+.remember-me-checkbox {
+  margin-right: 5px; /* Add some spacing between the checkbox and text */
+  vertical-align: middle;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.form-group {
+  margin-bottom: 0px;
+}
+  
+.additional-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
