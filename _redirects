@@ -1,4 +1,4 @@
-/login/es/*      /login/es/index.html   200
-/login/*         /login/index.html      200
+/login/es/       /login/es/index.html   200
+/login/          /login/index.html      200
 /dashboard       /dashboard/dashboard.html   200
 /registration    /registration/registration.html   200
