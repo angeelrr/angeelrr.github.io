@@ -1,22 +1,24 @@
 document.getElementById('login-form').addEventListener('submit', function (event) {
   event.preventDefault(); // Prevent form submission
-
-const userLang = navigator.language || navigator.userLanguage;
-const langCode = userLang.slice(0, 2); // Get the first two characters
-
-// Redirect based on detected language
-if (langCode === 'es') {
-  if (!window.location.pathname.startsWith('/es')) {
-    window.location.replace('/es' + window.location.pathname);
-  }
-} else {
-  if (window.location.pathname.startsWith('/es')) {
-    window.location.replace(window.location.pathname.replace('/es', ''));
-  }
-}
-
-//
   
+  // Language detection and redirection logic
+  const userLang = navigator.language || navigator.userLanguage;
+  const langCode = userLang.slice(0, 2); // Get the first two characters
+  
+  // Handle language redirection *after* form validation
+  setTimeout(function () {
+    if (langCode === 'es') {
+      if (!window.location.pathname.startsWith('/es')) {
+        window.location.replace('/es' + window.location.pathname);
+      }
+    } else {
+      if (window.location.pathname.startsWith('/es')) {
+        window.location.replace(window.location.pathname.replace('/es', ''));
+      }
+    }
+  }, 100); // Small delay to ensure the form processing finishes first
+
+  // Form validation
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
   const errorMessage = document.getElementById('error-message');
