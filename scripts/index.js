@@ -11,6 +11,11 @@ if (userLang.startsWith('es')) {
 }
 
   const userLang = navigator.language || 'en'; // Default to English
+if (userLang.startsWith('es')) {
+  window.location.href = '/es/index.html';
+} else {
+  window.location.href = '/en/index.html';
+}
 
 
   
