@@ -1,4 +1,17 @@
 /   /login/en/index.html 200!  Language=English
 /   /login/es/index.html 200!  Language=Spanish
+
+[[redirects]]
+  from = "/"
+  to = "/login/en/index.html"
+  status = 200
+  conditions = {Language = ["en"]}
+
+[[redirects]]
+  from = "/"
+  to = "/login/es/index.html"
+  status = 200
+  conditions = {Language = ["es"]}
+
 /dashboard   /dashboard/dashboard.html   200
 /registration   /registration/registration.html   200
