@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
         errorElement.innerHTML = '';
 
         // Get form inputs
-        const username = document.getElementById('usernameInput').value.trim();
         const email = document.getElementById('emailInput').value.trim();
         const password = document.getElementById('passwordInput').value.trim();
         const confirmation = document.getElementById('confirmationInput').value.trim();
