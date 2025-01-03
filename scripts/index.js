@@ -27,7 +27,7 @@ if (langCode === 'es') {
 
   if (username === validUsername && password === validPassword) {
     // Redirect to dashboard (replace with your dashboard URL)
-    window.location.href = "../dashboard/dashboard.html";
+    window.location.href = "../../dashboard/dashboard.html";
   } else {
     alert('Invalid credentials. Please try again.'); // Show alert message
     errorMessage.style.display = 'block'; // Show error message
