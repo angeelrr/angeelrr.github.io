@@ -16,28 +16,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const confirmation = document.getElementById('confirmationInput').value.trim();
 
         // Perform basic validation
-        if (!username || !email || !password || !confirmation) {
+        if (!email || !password || !confirmation) {
             displayError('All fields are required.');
             console.log('All fields are required.');
             return;
         }
 
         // Additional validation
-        if (username.length < 6) {
-            displayError('Username must be at least 6 characters.');
-            console.log('Username must be at least 6 characters.');
+        if (email.length < 10) {
+            displayError('Email must be at least 10 characters.');
+            console.log('Username must be at least 10 characters.');
             return;
         }
 
-        if (password.length < 8) {
-            displayError('Password must be at least 8 characters.');
-            console.log('Password must be at least 8 characters.');
+        if (password.length < 6) {
+            displayError('Password must be at least 6 characters.');
+            console.log('Password must be at least 6 characters.');
             return;
         }
 
-        if (password.length > 155) {
-            displayError('Password must be at most 155 characters.');
-            console.log('Password must be at most 155 characters.');
+        if (password.length > 80) {
+            displayError('Password must be at most 80 characters.');
+            console.log('Password must be at most 80 characters.');
             return;
         }
 
@@ -46,14 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!emailRegex.test(email)) {
             displayError('Invalid email address.');
             console.log('Invalid email address.');
-            return;
-        }
-
-        // Check if the password contains at least one uppercase, one lowercase, and one number
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-        if (!passwordRegex.test(password)) {
-            displayError('Password must contain at least one uppercase letter, one lowercase letter, and at least one number.');
-            console.log('Password must contain at least one uppercase letter, one lowercase letter, and at least one number.');
             return;
         }
 
