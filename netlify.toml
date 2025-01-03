@@ -1,8 +1,18 @@
 [build]
   publish = "."
-  command = "npm run build" # if you have a build command; otherwise, omit this line
+  command = "" # Use this only if you have a build step, otherwise leave it empty.
 
 [[redirects]]
   from = "/"
   to = "/login/"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard/dashboard.html"
+  status = 200
+
+[[redirects]]
+  from = "/registration"
+  to = "/registration/registration.html"
   status = 200
