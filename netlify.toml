@@ -16,3 +16,8 @@
   from = "/registration"
   to = "/registration/registration.html"
   status = 200
+
+[[redirects]]
+  from = "/es/*"
+  to = "/es/:splat"
+  status = 200
