@@ -1,20 +1,27 @@
-[[redirects]]
-  from = "/"
-  to = "/login/"
-  status = 200
+[build]
+publish = "."  # Ensure this is pointing to your root folder
 
 [[redirects]]
-  from = "/dashboard"
-  to = "/dashboard/dashboard.html"
-  status = 200
+from = "/"
+to = "/login/"
+status = 200
 
 [[redirects]]
-  from = "/registration"
-  to = "/registration/registration.html"
-  status = 200
+from = "/dashboard"
+to = "/dashboard/dashboard.html"
+status = 200
 
-# Updated rule for Spanish language redirection
 [[redirects]]
-  from = "/login/es/*"
-  to = "/login/es/:splat"
-  status = 200
+from = "/registration"
+to = "/registration/registration.html"
+status = 200
+
+[[redirects]]
+from = "/es/*"
+to = "/login/es/:splat"
+status = 200
+
+[[redirects]]
+from = "/login/*"
+to = "/login/index.html"
+status = 200
