@@ -10,6 +10,9 @@ if (userLang.startsWith('es')) {
   window.location.href = '/en/index.html';
 }
 
+  const userLang = navigator.language || 'en'; // Default to English
+
+
   
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
