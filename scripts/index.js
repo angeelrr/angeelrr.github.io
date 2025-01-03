@@ -1,23 +1,21 @@
 document.getElementById('login-form').addEventListener('submit', function (event) {
   event.preventDefault(); // Prevent form submission
 
-const userLang = navigator.language || navigator.userLanguage; // e.g., "es-ES" or "en-US"
-if (userLang.startsWith('es')) {
-  // Load Spanish content
-  window.location.href = '/es/index.html';
+const userLang = navigator.language || navigator.userLanguage;
+const langCode = userLang.slice(0, 2); // Get the first two characters
+
+// Redirect based on detected language
+if (langCode === 'es') {
+  if (!window.location.pathname.startsWith('/es')) {
+    window.location.replace('/es' + window.location.pathname);
+  }
 } else {
-  // Load English content
-  window.location.href = '/en/index.html';
+  if (window.location.pathname.startsWith('/es')) {
+    window.location.replace(window.location.pathname.replace('/es', ''));
+  }
 }
 
-  const userLang = navigator.language || 'en'; // Default to English
-if (userLang.startsWith('es')) {
-  window.location.href = '/es/index.html';
-} else {
-  window.location.href = '/en/index.html';
-}
-
-
+//
   
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
