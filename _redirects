@@ -1,3 +1,4 @@
-/   /login/    200
+/   /login/en/index.html 200!  Language=English
+/   /login/es/index.html 200!  Language=Spanish
 /dashboard   /dashboard/dashboard.html   200
 /registration   /registration/registration.html   200
