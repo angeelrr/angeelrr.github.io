@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // If all validation passes, show alert, redirect, or perform further actions
         alert('Signed up successfully!');
         // Redirect to the login page
-        window.location.href = '../login/index';
+        window.location.href = '../login/index.html';
     });
 
     function displayError(message) {
