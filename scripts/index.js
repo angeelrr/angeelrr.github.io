@@ -13,7 +13,7 @@ document.getElementById('login-form').addEventListener('submit', function (event
     // Redirect to dashboard (replace with your dashboard URL)
     window.location.href = "../dashboard/dashboard.html";
   } else {
-    alert('Invalid username or password. Please try again.'); // Show alert message
+    alert('Invalid credentials. Please try again.'); // Show alert message
     errorMessage.style.display = 'block'; // Show error message
   }
 });
