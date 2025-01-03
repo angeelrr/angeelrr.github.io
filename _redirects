@@ -1,5 +1,5 @@
-/login/es/*   /login/es/index.html   200  Language = Spanish
-/login/*      /login/index.html      200  Language = English
+/login/es/*   /login/es/index.html   200
+/login/*      /login/index.html      200
 
 /dashboard   /dashboard/dashboard.html   200
 /registration   /registration/registration.html   200
