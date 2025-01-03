@@ -1,4 +1,11 @@
-/login/es*      /login/es/index.html   200
-/login/*        /login/index.html      200
-/dashboard      /dashboard/dashboard.html   200
-/registration   /registration/registration.html   200
+# Redirect to /login/es/index.html for Spanish version
+/es/*    /login/es/:splat    200
+
+# Default login page redirect (English version)
+/login/*    /login/index.html    200
+
+# Dashboard
+/dashboard    /dashboard/dashboard.html    200
+
+# Registration page
+/registration    /registration/registration.html    200
