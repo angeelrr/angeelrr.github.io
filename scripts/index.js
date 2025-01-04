@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Apply translations to UI
       document.title = currentTranslations.title || "Login";
+      document.getElementById('login-title').textContent = currentTranslations.loginTitle || "Login";
       document.getElementById('username').placeholder = currentTranslations.placeholderUsername || "Username";
       document.getElementById('password').placeholder = currentTranslations.placeholderPassword || "Password";
       document.querySelector('.login-button').textContent = currentTranslations.signIn || "Sign In";
