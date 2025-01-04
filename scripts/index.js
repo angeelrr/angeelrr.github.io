@@ -10,18 +10,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Update UI text based on translations
       document.getElementById('login-title').textContent = currentTranslations.loginTitle || "Login";
-      document.getElementById('username').placeholder = currentTranslations.placeholderUsername || "Username";
-      document.getElementById('password').placeholder = currentTranslations.placeholderPassword || "Password";
+      document.getElementById('username').placeholder = currentTranslations.usernamePlaceholder || "Username";
+      document.getElementById('password').placeholder = currentTranslations.passwordPlaceholder || "Password";
       document.getElementById('signInButton').textContent = currentTranslations.signIn || "Sign in";
       document.getElementById('error-message').textContent = currentTranslations.errorMessage || "Invalid credentials. Please try again.";
-      document.querySelector('.remember-me-label').textContent = currentTranslations.rememberMe || "Remember me";
+
+      // Update "Remember me" with its checkbox
+      const rememberMeLabel = document.querySelector('.remember-me-label');
+      rememberMeLabel.innerHTML = `<input type="checkbox" class="remember-me-checkbox" id="rememberMe"> ${currentTranslations.rememberMe || "Remember me"}`;
+
       document.getElementById('forgotPassword').textContent = currentTranslations.forgotPassword || "Forgot password?";
-      
+
       // Update registration message
-      const registrationMessage = currentTranslations.registerMessage || "Don't have an account? Register";
-      const [staticText, linkText] = registrationMessage.split('Register');
-      document.getElementById('registrationMessage').childNodes[0].textContent = staticText || "Don't have an account?";
-      document.getElementById('signUpLink').textContent = linkText || "Register";
+      const registrationMessage = document.getElementById('registrationMessage');
+      const signUpLink = document.getElementById('signUpLink');
+      const [staticText, linkText] = currentTranslations.registerMessage.split('Regístrate') || currentTranslations.registerMessage.split('Register');
+      registrationMessage.childNodes[0].textContent = staticText || "Don't have an account?";
+      signUpLink.textContent = linkText || "Register";
     })
     .catch(error => {
       console.error('Error loading translations:', error);
