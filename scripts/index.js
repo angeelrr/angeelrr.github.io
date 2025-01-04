@@ -4,11 +4,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   // Load translations from the single JSON file
   const translations = await fetch(`/translations.json`)
-    .then(response => response.json())
-    .catch(error => {
-      console.error("Error loading translations:", error);
-      return {};
-    });
+    .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log("Translations loaded:", data);
+  })
+  .catch(error => console.error("Error loading translations:", error));
 
   // Default to English if the user's language is not found
   const currentTranslations = translations[langCode] || translations['en'];
