@@ -26,17 +26,27 @@ document.addEventListener('DOMContentLoaded', function () {
       const registrationMessage = document.getElementById('registrationMessage');
       const signUpLink = document.getElementById('signUpLink');
       
-      // Determine the split keyword based on the language
-      const splitKey = currentTranslations.registerMessage.includes('Regístrate') ? 'Regístrate' : 'Register';
+      // Use the current language's registerMessage
+      const fullMessage = currentTranslations.registerMessage || "Don't have an account? Register";
       
-      // Split the message and update elements
-      const [staticText, linkText] = currentTranslations.registerMessage.split(splitKey);
-      registrationMessage.childNodes[0].textContent = staticText || "Don't have an account?";
-      signUpLink.textContent = linkText || "Register";
-          })
+      // Find the index of the split keyword (Register/Regístrate)
+      const splitKey = fullMessage.includes("Regístrate") ? "Regístrate" : "Register";
+      const splitIndex = fullMessage.indexOf(splitKey);
+      
+      // Update the registration message and link
+      if (splitIndex !== -1) {
+        registrationMessage.textContent = fullMessage.substring(0, splitIndex); // Static text before the link
+        signUpLink.textContent = splitKey; // Link text
+      } else {
+        // Fallback to default English
+        registrationMessage.textContent = "Don't have an account? ";
+        signUpLink.textContent = "Register";
+      }
+
+        })
           .catch(error => {
-            console.error('Error loading translations:', error);
-          });
+          console.error('Error loading translations:', error);
+        });
 
   // Existing login logic
   document.getElementById('login-form').addEventListener('submit', function (event) {
