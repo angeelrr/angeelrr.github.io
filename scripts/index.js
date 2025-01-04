@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentTranslations = translations[langCode] || translations['en'];
 
       // Update UI text based on translations
+      document.title = currentTranslations.title || "Login";
       document.getElementById('login-title').textContent = currentTranslations.loginTitle || "Login";
       document.getElementById('username').placeholder = currentTranslations.usernamePlaceholder || "Username";
       document.getElementById('password').placeholder = currentTranslations.passwordPlaceholder || "Password";
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const signUpLink = document.getElementById('signUpLink');
       const [staticText, linkText] = currentTranslations.registerMessage.split('Regístrate') || currentTranslations.registerMessage.split('Register');
       registrationMessage.childNodes[0].textContent = staticText || "Don't have an account?";
-      signUpLink.textContent = linkText || "Register";
+      document.getElementById('signUpLink').textContent = currentTranslations.registerMessage.split('Register')[1] || "Register";
     })
     .catch(error => {
       console.error('Error loading translations:', error);
