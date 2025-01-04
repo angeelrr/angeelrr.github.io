@@ -30,7 +30,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
   // Default to English if the user's language is not found
-  const currentTranslations = translations[langCode] || translations['en'];
+  fetch('/translations/translations.json')
+  .then(response => response.json())
+  .then(data => {
+    const currentTranslations = data[langCode] || data['en'];
+    applyTranslations(currentTranslations);
+  })
+  .catch(error => console.error('Error loading translations:', error));
 
   // Update UI text based on translations
   document.getElementById('title').textContent = currentTranslations.title || "Login";
