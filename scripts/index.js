@@ -22,26 +22,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
       document.getElementById('forgotPassword').textContent = currentTranslations.forgotPassword || "Forgot password?";
 
-      // Update registration message
-      const registrationMessage = document.getElementById('registrationMessage');
-      const signUpLink = document.getElementById('signUpLink');
-      
-      // Use the current language's registerMessage
-      const fullMessage = currentTranslations.registerMessage || "Don't have an account? Register";
-      
-      // Find the index of the split keyword (Register/Regístrate)
-      const splitKey = fullMessage.includes("Regístrate") ? "Regístrate" : "Register";
-      const splitIndex = fullMessage.indexOf(splitKey);
-      
-      // Update the registration message and link
-      if (splitIndex !== -1) {
-        registrationMessage.textContent = fullMessage.substring(0, splitIndex); // Static text before the link
-        signUpLink.textContent = splitKey; // Link text
-      } else {
-        // Fallback to default English
-        registrationMessage.textContent = "Don't have an account? ";
-        signUpLink.textContent = "Register";
-      }
+// Update registration message
+const registrationMessage = document.getElementById('registrationMessage');
+const signUpLink = document.getElementById('signUpLink');
+
+// Use the current language's registerMessage
+const fullMessage = currentTranslations.registerMessage || "Don't have an account? Register";
+
+// Split the message into static text and link text
+const splitKey = fullMessage.includes("Regístrate") ? "Regístrate" : "Register";
+const parts = fullMessage.split(splitKey);
+
+// Update the registration message and link
+if (parts.length === 2) {
+  registrationMessage.childNodes[0].textContent = parts[0]; // Static text before the link
+  signUpLink.textContent = splitKey; // The link text
+} else {
+  // Fallback to default English
+  registrationMessage.childNodes[0].textContent = "Don't have an account? ";
+  signUpLink.textContent = "Register";
+}
+
 
         })
           .catch(error => {
