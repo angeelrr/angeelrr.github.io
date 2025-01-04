@@ -23,6 +23,11 @@ body {
   margin-bottom: 20px;
   color: #333;
 }
+
+.error-message {
+  font-size: 14px;
+}
+
   
 .login-input {
   width: 100%;
