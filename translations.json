@@ -1,1 +1,16 @@
-
+{
+  "en": {
+    "login_title": "Login",
+    "username_placeholder": "Username or email",
+    "password_placeholder": "Password",
+    "submit_button": "Sign in",
+    "error_message": "Invalid credentials. Please try again."
+  },
+  "es": {
+    "login_title": "Iniciar sesión",
+    "username_placeholder": "Nombre de usuario o correo electrónico",
+    "password_placeholder": "Contraseña",
+    "submit_button": "Iniciar sesión",
+    "error_message": "Credenciales inválidas. Inténtalo de nuevo."
+  }
+}
