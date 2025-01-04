@@ -3,7 +3,7 @@
     "title": "Login",
     "loginTitle": "Login",
     "usernamePlaceholder": "Username or email",
-    "passwordPlaceholder": "Password"
+    "passwordPlaceholder": "Password",
     "signIn": "Sign In",
     "errorMessage": "Invalid credentials. Please try again.",
     "forgotPassword": "Forgot Password?",
@@ -14,7 +14,7 @@
     "title": "Iniciar sesión",
     "loginTitle": "Inicio de sesión",
     "usernamePlaceholder": "Nombre de usuario o correo electrónico",
-    "passwordPlaceholder": "Contraseña"
+    "passwordPlaceholder": "Contraseña",
     "signIn": "Iniciar sesión",
     "errorMessage": "Credenciales inválidas. Inténtalo de nuevo.",
     "forgotPassword": "¿Olvidaste tu contraseña?",
