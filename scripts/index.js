@@ -3,29 +3,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const langCode = userLang.slice(0, 2); // Get the first two characters
   const translationFile = '/translations/translations.json';
 
-  // Fetch the translations and handle errors
   fetch(translationFile)
     .then(response => response.json())
     .then(translations => {
       const currentTranslations = translations[langCode] || translations['en'];
 
-      // Log the current translations to check if they are loaded correctly
-      console.log(currentTranslations);
-
-      // Helper function to set text content safely
-      const setTextContent = (id, text) => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.textContent = text;
-        }
-      };
-
       // Update UI text based on translations
-      setTextContent('login-title', currentTranslations.loginTitle || "Login");
-      document.getElementById('username').placeholder = currentTranslations.usernamePlaceholder || "Username";
-      document.getElementById('password').placeholder = currentTranslations.passwordPlaceholder || "Password";
-      setTextContent('signInButton', currentTranslations.signIn || "Sign in");
-      setTextContent('error-message', currentTranslations.errorMessage || "Invalid credentials. Please try again.");
+      document.getElementById('login-title').textContent = currentTranslations.loginTitle || "Login";
+      document.getElementById('username').placeholder = currentTranslations.placeholderUsername || "Username";
+      document.getElementById('password').placeholder = currentTranslations.placeholderPassword || "Password";
+      document.getElementById('signInButton').textContent = currentTranslations.signIn || "Sign in";
+      document.getElementById('error-message').textContent = currentTranslations.errorMessage || "Invalid credentials. Please try again.";
       document.querySelector('.remember-me-label').textContent = currentTranslations.rememberMe || "Remember me";
       document.getElementById('forgotPassword').textContent = currentTranslations.forgotPassword || "Forgot password?";
       
@@ -34,29 +22,26 @@ document.addEventListener('DOMContentLoaded', function () {
       const [staticText, linkText] = registrationMessage.split('Register');
       document.getElementById('registrationMessage').childNodes[0].textContent = staticText || "Don't have an account?";
       document.getElementById('signUpLink').textContent = linkText || "Register";
-      
     })
     .catch(error => {
       console.error('Error loading translations:', error);
     });
 
-  // Login logic
+  // Existing login logic
   document.getElementById('login-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('error-message');
 
-    // Hardcoded credentials for demo purposes
     const validUsername = "angelrr";
     const validPassword = "Afrr2407";
 
     if (username === validUsername && password === validPassword) {
-      // Redirect to dashboard (replace with your dashboard URL)
       window.location.href = "/dashboard/dashboard.html";
     } else {
-      errorMessage.style.display = 'block'; // Show error message
+      errorMessage.style.display = 'block';
     }
   });
 });
