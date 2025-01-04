@@ -20,9 +20,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     document.querySelector('.login-button').textContent = language.signIn;
     document.getElementById('error-message').textContent = language.errorMessage;
     document.querySelector('.forgot-password-link').textContent = language.forgotPassword;
-    document.querySelector('.remember-me-label').textContent = language.rememberMe;
-    document.querySelector('.registration-message').innerHTML = language.registerMessage;
-
+    document.querySelector('.remember-me-label').childNodes[1].textContent = ` ${language.rememberMe}`;
+    const registrationMessage = document.querySelector('.registration-message');
+    registrationMessage.firstChild.textContent = language.registerMessage.split('?')[0] + '? ';
+    registrationMessage.lastChild.textContent = language.registerMessage.split(' ').slice(-1).join(' ');
   } catch (error) {
     console.error('Error loading translations:', error);
   }
