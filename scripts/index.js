@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(translations => {
       const currentTranslations = translations[langCode] || translations['en'];
 
+      // Log the current translations to check if they are loaded correctly
+      console.log(currentTranslations);
+
       // Update UI text based on translations
       document.getElementById('login-title').textContent = currentTranslations.loginTitle || "Login";
       document.getElementById('username').placeholder = currentTranslations.usernamePlaceholder || "Username";
