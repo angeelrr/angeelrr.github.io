@@ -1,6 +1,7 @@
 {
   "en": {
     "title": "Login",
+    "loginTitle": "Login"
     "placeholderUsername": "Username or email",
     "placeholderPassword": "Password",
     "signIn": "Sign In",
@@ -11,6 +12,7 @@
   },
   "es": {
     "title": "Iniciar sesión",
+    "loginTitle": "Inicio de sesión"
     "placeholderUsername": "Nombre de usuario o correo electrónico",
     "placeholderPassword": "Contraseña",
     "signIn": "Iniciar sesión",
