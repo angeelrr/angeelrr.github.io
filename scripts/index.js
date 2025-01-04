@@ -58,4 +58,4 @@ document.addEventListener('DOMContentLoaded', async function () {
       errorMessage.style.display = 'block'; // Show error message
     }
   });
-});
+);
