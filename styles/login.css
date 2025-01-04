@@ -109,6 +109,7 @@ body {
 }
 
 .error-message {
+  display: none;
   font-size: 14px;
   padding: 8px;
   color: #e88a19;
