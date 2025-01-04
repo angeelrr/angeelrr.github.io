@@ -12,7 +12,7 @@
   },
   "es": {
     "title": "Iniciar sesión",
-    "loginTitle": "Inicio de sesión"
+    "loginTitle": "Inicio de sesión",
     "placeholderUsername": "Nombre de usuario o correo electrónico",
     "placeholderPassword": "Contraseña",
     "signIn": "Iniciar sesión",
