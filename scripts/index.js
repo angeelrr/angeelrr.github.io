@@ -1,59 +1,37 @@
-document.addEventListener('DOMContentLoaded', async function () {
-  const TRANSLATIONS_PATH = '/translations/translations.json';
-
-  try {
-    const response = await fetch(TRANSLATIONS_PATH);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const translations = await response.json();
-
-    const userLang = navigator.language || navigator.userLanguage;
-    const langCode = userLang.slice(0, 2); // 'en', 'es', etc.
-
-    const language = translations[langCode] || translations['en']; // Fallback to English if not found
-
-    // Update the UI with translations
-    document.title = language.title;
-    document.getElementById('username').placeholder = language.placeholderUsername;
-    document.getElementById('password').placeholder = language.placeholderPassword;
-    document.querySelector('.login-button').textContent = language.signIn;
-    document.getElementById('error-message').textContent = language.errorMessage;
-    document.querySelector('.forgot-password-link').textContent = language.forgotPassword;
-    document.querySelector('.remember-me-label').childNodes[1].textContent = ` ${language.rememberMe}`;
-    const registrationMessage = document.querySelector('.registration-message');
-    registrationMessage.firstChild.textContent = language.registerMessage.split('?')[0] + '? ';
-    registrationMessage.lastChild.textContent = language.registerMessage.split(' ').slice(-1).join(' ');
-  } catch (error) {
-    console.error('Error loading translations:', error);
-  }
-});
-
-  // Default to English if the user's language is not found
+document.addEventListener('DOMContentLoaded', function () {
+  // Fetch translations and apply them
   fetch('/translations/translations.json')
-  .then(response => response.json())
-  .then(data => {
-    const currentTranslations = data[langCode] || data['en'];
-    applyTranslations(currentTranslations);
-  })
-  .catch(error => console.error('Error loading translations:', error));
+    .then(response => response.json())
+    .then(data => {
+      const langCode = navigator.language.slice(0, 2); // e.g., 'en', 'es'
+      const currentTranslations = data[langCode] || data['en']; // Fallback to English if langCode is not found
+      
+      // Apply translations to UI
+      document.title = currentTranslations.title || "Login";
+      document.getElementById('username').placeholder = currentTranslations.placeholderUsername || "Username";
+      document.getElementById('password').placeholder = currentTranslations.placeholderPassword || "Password";
+      document.querySelector('.login-button').textContent = currentTranslations.signIn || "Sign In";
+      document.getElementById('error-message').textContent = currentTranslations.errorMessage || "Invalid credentials. Please try again.";
+      document.querySelector('.forgot-password-link').textContent = currentTranslations.forgotPassword || "Forgot Password?";
+      document.querySelector('.remember-me-label').childNodes[1].textContent = ` ${currentTranslations.rememberMe || "Remember me"}`;
+      
+      const registrationMessage = document.querySelector('.registration-message');
+      const registerMessageParts = currentTranslations.registerMessage ? currentTranslations.registerMessage.split('?') : ["Don't have an account", " Register"];
+      registrationMessage.firstChild.textContent = registerMessageParts[0] + '? ';
+      registrationMessage.lastChild.textContent = registerMessageParts[1];
+    })
+    .catch(error => {
+      console.error('Error loading translations:', error);
+    });
 
-  // Update UI text based on translations
-  document.getElementById('title').textContent = currentTranslations.title || "Login";
-  document.getElementById('signInButton').textContent = currentTranslations.signInButton || "Sign in";
-  document.getElementById('forgotPassword').textContent = currentTranslations.forgotPassword || "Forgot password?";
-  document.getElementById('rememberMe').nextSibling.textContent = currentTranslations.rememberMe || "Remember me";
-  document.getElementById('registrationMessage').innerHTML = currentTranslations.registrationMessage || "Don't have an account? <a href='/registration/registration.html'>Sign up</a>";
-
-  // Handle form submission for login
-  document.getElementById('login-form').addEventListener('submit', function(event) {
+  // Add event listener for form submission
+  document.getElementById('login-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('error-message');
 
-    // Hardcoded credentials for demo purposes
     const validUsername = "angelrr";
     const validPassword = "Afrr2407";
 
@@ -61,7 +39,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       // Redirect to dashboard
       window.location.href = "/dashboard/dashboard.html";
     } else {
-      alert('Invalid credentials. Please try again.'); // Show alert message
+      errorMessage.textContent = 'Invalid credentials. Please try again.';
       errorMessage.style.display = 'block'; // Show error message
     }
   });
+});
