@@ -1,22 +1,22 @@
 {
   "en": {
     "title": "Login",
-    "placeholderUsername": "Username or email",
+    "placeholderUsername": "Username",
     "placeholderPassword": "Password",
-    "signIn": "Sign in",
+    "signIn": "Sign In",
     "errorMessage": "Invalid credentials. Please try again.",
-    "forgotPassword": "Forgot password?",
+    "forgotPassword": "Forgot Password?",
     "rememberMe": "Remember me",
-    "registerMessage": "Don't have an account? Sign up"
+    "registerMessage": "Don't have an account? Register"
   },
   "es": {
     "title": "Iniciar sesión",
-    "placeholderUsername": "Nombre de usuario o correo electrónico",
+    "placeholderUsername": "Nombre de usuario",
     "placeholderPassword": "Contraseña",
     "signIn": "Iniciar sesión",
-    "errorMessage": "Credenciales no válidas. Por favor, inténtalo de nuevo.",
+    "errorMessage": "Credenciales inválidas. Inténtalo de nuevo.",
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "rememberMe": "Recuérdame",
-    "registerMessage": "¿No tienes una cuenta? Regístrate"
+    "registerMessage": "¿No tienes cuenta? Regístrate"
   }
 }
