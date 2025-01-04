@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Login",
-    "loginTitle": "Login"
+    "loginTitle": "Login",
     "placeholderUsername": "Username or email",
     "placeholderPassword": "Password",
     "signIn": "Sign In",
