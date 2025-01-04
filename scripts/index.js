@@ -25,13 +25,18 @@ document.addEventListener('DOMContentLoaded', function () {
       // Update registration message
       const registrationMessage = document.getElementById('registrationMessage');
       const signUpLink = document.getElementById('signUpLink');
-      const [staticText, linkText] = currentTranslations.registerMessage.split('Regístrate') || currentTranslations.registerMessage.split('Register');
+      
+      // Determine the split keyword based on the language
+      const splitKey = currentTranslations.registerMessage.includes('Regístrate') ? 'Regístrate' : 'Register';
+      
+      // Split the message and update elements
+      const [staticText, linkText] = currentTranslations.registerMessage.split(splitKey);
       registrationMessage.childNodes[0].textContent = staticText || "Don't have an account?";
-      document.getElementById('signUpLink').textContent = currentTranslations.registerMessage.split('Register')[1] || "Register";
-    })
-    .catch(error => {
-      console.error('Error loading translations:', error);
-    });
+      signUpLink.textContent = linkText || "Register";
+          })
+          .catch(error => {
+            console.error('Error loading translations:', error);
+          });
 
   // Existing login logic
   document.getElementById('login-form').addEventListener('submit', function (event) {
