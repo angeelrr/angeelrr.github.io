@@ -9,25 +9,24 @@
 <body>
 
 <div class="login-container">
-  <h2>Login</h2>
+  <h2 id="title">Login</h2>
   <form id="login-form" action="">
     <div class="form-group">
       <input type="text" id="username" class="login-input" placeholder="Username or email" autocomplete="username">
       <input type="password" id="password" class="login-input" placeholder="Password" autocomplete="password">
     </div>
-    <button type="submit" class="login-button">Sign in</button>
+    <button type="submit" class="login-button" id="signInButton">Sign in</button>
     <p id="error-message" style="color: #34495e; display: none;">Invalid credentials. Please try again.</p>
     <div class="additional-options">
       <label class="remember-me-label">
-        <input type="checkbox" class="remember-me-checkbox"> Remember me
+        <input type="checkbox" class="remember-me-checkbox" id="rememberMe"> Remember me
       </label>
-      <a class="forgot-password-link" href="">Forgot password?</a>
+      <a class="forgot-password-link" href="#" id="forgotPassword">Forgot password?</a>
     </div>
   </form>
-  <p class="registration-message">Don't have an account? <a class="registration-link" href="/registration/registration.html">Sign up</a></p>
+  <p class="registration-message" id="registrationMessage">Don't have an account? <a class="registration-link" href="/registration/registration.html" id="signUpLink">Sign up</a></p>
 </div>
 
-  <script defer src="/scripts/es/index.js"></script>
-  
+<script defer src="/scripts/index.js"></script>
 </body>
 </html>
