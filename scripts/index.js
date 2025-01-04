@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('password').placeholder = currentTranslations.passwordPlaceholder || "Password";
       setTextContent('signInButton', currentTranslations.signIn || "Sign in");
       setTextContent('error-message', currentTranslations.errorMessage || "Invalid credentials. Please try again.");
+      document.querySelector('.remember-me-label').textContent = currentTranslations.rememberMe || "Remember me";
+      document.getElementById('forgotPassword').textContent = currentTranslations.forgotPassword || "Forgot password?";
+      
+      // Update registration message
+      const registrationMessage = currentTranslations.registerMessage || "Don't have an account? Register";
+      const [staticText, linkText] = registrationMessage.split('Register');
+      document.getElementById('registrationMessage').childNodes[0].textContent = staticText || "Don't have an account?";
+      document.getElementById('signUpLink').textContent = linkText || "Register";
+      
     })
     .catch(error => {
       console.error('Error loading translations:', error);
