@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   const langCode = userLang.slice(0, 2); // Get the first two characters (e.g., "en", "es")
 
   // Load translations from the single JSON file
-  const translations = await fetch(`/translations/translations.json`)
+  const translations = await fetch(`/translations.json`)
     .then(response => response.json())
     .catch(error => {
       console.error("Error loading translations:", error);
