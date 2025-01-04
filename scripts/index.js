@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const userLang = navigator.language || navigator.userLanguage;
   const langCode = userLang.slice(0, 2); // Get the first two characters
   const translationFile = '/translations/translations.json';
@@ -12,19 +12,27 @@ document.addEventListener('DOMContentLoaded', function() {
       // Log the current translations to check if they are loaded correctly
       console.log(currentTranslations);
 
+      // Helper function to set text content safely
+      const setTextContent = (id, text) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.textContent = text;
+        }
+      };
+
       // Update UI text based on translations
-      document.getElementById('login-title').textContent = currentTranslations.loginTitle || "Login";
+      setTextContent('login-title', currentTranslations.loginTitle || "Login");
       document.getElementById('username').placeholder = currentTranslations.usernamePlaceholder || "Username";
       document.getElementById('password').placeholder = currentTranslations.passwordPlaceholder || "Password";
-      document.getElementById('submit').textContent = currentTranslations.submit || "Sign in";
-      document.getElementById('error-message').textContent = currentTranslations.errorMessage || "Invalid credentials. Please try again.";
+      setTextContent('signInButton', currentTranslations.signIn || "Sign in");
+      setTextContent('error-message', currentTranslations.errorMessage || "Invalid credentials. Please try again.");
     })
     .catch(error => {
       console.error('Error loading translations:', error);
     });
 
-  // Your existing login logic goes here
-  document.getElementById('login-form').addEventListener('submit', function(event) {
+  // Login logic
+  document.getElementById('login-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     const username = document.getElementById('username').value;
