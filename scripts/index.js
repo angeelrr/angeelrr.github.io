@@ -1,3 +1,4 @@
+// Ensure the error message is updated based on the current translation
 document.addEventListener('DOMContentLoaded', function () {
   // Fetch translations and apply them
   fetch('/translations/translations.json')
@@ -5,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(data => {
       const langCode = navigator.language.slice(0, 2); // e.g., 'en', 'es'
       const currentTranslations = data[langCode] || data['en']; // Fallback to English if langCode is not found
-      
+
       // Apply translations to UI
       document.title = currentTranslations.title || "Login";
       document.getElementById('username').placeholder = currentTranslations.placeholderUsername || "Username";
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
       // Redirect to dashboard
       window.location.href = "/dashboard/dashboard.html";
     } else {
-      errorMessage.textContent = 'Invalid credentials. Please try again.';
       errorMessage.style.display = 'block'; // Show error message
     }
   });
