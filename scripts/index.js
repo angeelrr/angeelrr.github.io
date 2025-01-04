@@ -1,19 +1,32 @@
-document.addEventListener('DOMContentLoaded', async function() {
-  const userLang = navigator.language || navigator.userLanguage;
-  const langCode = userLang.slice(0, 2); // Get the first two characters (e.g., "en", "es")
+document.addEventListener('DOMContentLoaded', async function () {
+  const TRANSLATIONS_PATH = '/translations/translations.json';
 
-  // Load translations from the single JSON file
-  const translations = await fetch(`/translations.json`)
-    .then(response => {
+  try {
+    const response = await fetch(TRANSLATIONS_PATH);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return response.json();
-  })
-  .then(data => {
-    console.log("Translations loaded:", data);
-  })
-  .catch(error => console.error("Error loading translations:", error));
+    const translations = await response.json();
+
+    const userLang = navigator.language || navigator.userLanguage;
+    const langCode = userLang.slice(0, 2); // 'en', 'es', etc.
+
+    const language = translations[langCode] || translations['en']; // Fallback to English if not found
+
+    // Update the UI with translations
+    document.title = language.title;
+    document.getElementById('username').placeholder = language.placeholderUsername;
+    document.getElementById('password').placeholder = language.placeholderPassword;
+    document.querySelector('.login-button').textContent = language.signIn;
+    document.getElementById('error-message').textContent = language.errorMessage;
+    document.querySelector('.forgot-password-link').textContent = language.forgotPassword;
+    document.querySelector('.remember-me-label').textContent = language.rememberMe;
+    document.querySelector('.registration-message').innerHTML = language.registerMessage;
+
+  } catch (error) {
+    console.error('Error loading translations:', error);
+  }
+});
 
   // Default to English if the user's language is not found
   const currentTranslations = translations[langCode] || translations['en'];
