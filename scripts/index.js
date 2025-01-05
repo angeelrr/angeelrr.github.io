@@ -58,7 +58,7 @@ if (parts.length === 2) {
     const errorMessage = document.getElementById('error-message');
 
     const validUsername = "admin";
-    const validPassword = "password";
+    const validPassword = "superuser1111";
 
     if (username === validUsername && password === validPassword) {
       window.location.href = "/dashboard/dashboard.html";
