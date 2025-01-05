@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentTranslations = translations[langCode] || translations['en'];
 
       // Update UI text based on translations
-      document.title = currentTranslations.title || "Login";
+      document.title = currentTranslations.title || "Login - Developer Hub";
       document.getElementById('login-title').textContent = currentTranslations.loginTitle || "Login";
       document.getElementById('username').placeholder = currentTranslations.usernamePlaceholder || "Username";
       document.getElementById('password').placeholder = currentTranslations.passwordPlaceholder || "Password";
