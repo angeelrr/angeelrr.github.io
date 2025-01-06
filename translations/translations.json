@@ -1,7 +1,7 @@
 {
   "en": {
-    "title": "Login",
-    "loginTitle": "Login - Developer Hub",
+    "title": "Login - Developer Hub",
+    "loginTitle": "Login",
     "usernamePlaceholder": "Username or email",
     "passwordPlaceholder": "Password",
     "signIn": "Sign In",
