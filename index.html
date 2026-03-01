@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Developer Hub</title>
+  <link rel="stylesheet" type="text/css" href="/styles/login.css">
+
+    <!-- Favicon Links -->
+  <link rel="icon" type="image/x-icon" href="/assets/icons/icons-1/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/icons-1/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icons-1/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icons-1/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/icons-1/favicon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/icons-1/apple-touch-icon.png">
+  
+</head>
+  
+<body>
+
+<div class="login-container">
+  
+  <h2 id="login-title">Login</h2>
+  
+  <form id="login-form" action="">
+    <div class="form-group">
+      <input type="text" id="username" class="login-input" placeholder="Username or email" autocomplete="username">
+      <input type="password" id="password" class="login-input" placeholder="Password" autocomplete="password">
+    </div>
+    
+    <button type="submit" class="login-button" id="signInButton">Sign in</button>
+    
+    <p class="error-message" id="error-message">Invalid credentials. Please try again.</p>
+    
+    <div class="additional-options">
+      <label class="remember-me-label">
+        <input type="checkbox" class="remember-me-checkbox" id="rememberMe"> Remember me
+      </label>
+      <a class="forgot-password-link" href="#" id="forgotPassword">Forgot password?</a>
+    </div>
+    
+  </form>
+  
+  <p class="registration-message" id="registrationMessage">Don't have an account? <a class="registration-link" href="/registration/registration.html" id="signUpLink">Sign up</a></p>
+
+</div>
+
+<script defer src="/scripts/index.js"></script>
+  
+</body>
+  
+</html>
